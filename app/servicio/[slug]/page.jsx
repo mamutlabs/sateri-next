@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     const data = await getDocument('pages', slug);
     if (!data) return {};
     return {
-      title: data.metaTitle,
+      title: { absolute: data.metaTitle },
       description: data.metaDescription,
       alternates: { canonical: `https://sateri.do/servicio/${slug}` },
       openGraph: {
