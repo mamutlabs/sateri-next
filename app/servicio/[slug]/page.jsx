@@ -1,15 +1,13 @@
-import { doc, getDoc, getDocs, collection, query, where } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import { notFound } from 'next/navigation';
+import { getDocument, runQuery } from '@/lib/firestore';
 import SEOPageClient from '@/components/SEOPageClient';
 
 export const revalidate = 86400; // revalidate every 24 hours
 
 export async function generateStaticParams() {
   try {
-    const q = query(collection(db, 'pages'), where('status', '==', 'published'));
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map(d => ({ slug: d.id }));
+    const pages = await runQuery('pages', [{ field: 'status', value: 'published' }]);
+    return pages.map(p => ({ slug: p.id }));
   } catch {
     return [];
   }
@@ -18,9 +16,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   try {
-    const docSnap = await getDoc(doc(db, 'pages', slug));
-    if (!docSnap.exists()) return {};
-    const data = docSnap.data();
+    const data = await getDocument('pages', slug);
+    if (!data) return {};
     return {
       title: data.metaTitle,
       description: data.metaDescription,
@@ -39,9 +36,8 @@ export async function generateMetadata({ params }) {
 
 export default async function SEOPage({ params }) {
   const { slug } = await params;
-  const docSnap = await getDoc(doc(db, 'pages', slug));
-  if (!docSnap.exists()) notFound();
-  const seoData = docSnap.data();
+  const seoData = await getDocument('pages', slug);
+  if (!seoData) notFound();
 
   // JSON-LD schema
   const schema = {
