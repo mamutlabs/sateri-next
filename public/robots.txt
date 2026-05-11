@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sateri.do/sitemap.xml
