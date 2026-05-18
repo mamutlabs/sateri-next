@@ -132,7 +132,7 @@ export default function SEOPageClient({ seoData }) {
               Solicitar servicio →
             </button>
             <a
-              href="https://wa.me/18096231456?text=Hola%2C%20necesito%20un%20servicio%20de%20SATERI"
+              href="https://wa.me/18492204375?text=Hola%2C%20necesito%20un%20servicio%20de%20SATERI"
               target="_blank"
               rel="noopener noreferrer"
               style={{ background: '#25D366', color: '#fff', fontFamily: 'Inter', fontWeight: 700, fontSize: 16, padding: '18px 40px', borderRadius: 9999, border: 0, cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}
