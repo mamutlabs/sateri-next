@@ -33,6 +33,12 @@ npm run start    # Servidor de producción local
 
 Para desplegar: basta con hacer `git push origin main` — Vercel detecta el push y despliega automáticamente.
 
+```bash
+# Regenerar sitemap (cuando se agregan páginas nuevas en Firestore)
+node generate-sitemap.mjs
+git add public/sitemap.xml && git commit -m "Update sitemap" && git push
+```
+
 ## Arquitectura
 
 ### Generación de páginas
