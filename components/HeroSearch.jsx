@@ -76,9 +76,9 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
     }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=80"
-          alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: .25, mixBlendMode: 'overlay' }} />
+          alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: .45, mixBlendMode: 'overlay' }} />
         <div style={{ position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse at 30% 40%, rgba(18,44,38,.7), #122c26 70%)' }} />
+          background: 'radial-gradient(ellipse at 30% 40%, rgba(18,44,38,.45), #122c26 75%)' }} />
       </div>
 
       <div style={{
