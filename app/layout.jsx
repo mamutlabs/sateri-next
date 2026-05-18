@@ -14,7 +14,7 @@ export const metadata = {
     locale: 'es_DO',
     url: 'https://sateri.do',
     siteName: 'SATERI',
-    images: [{ url: '/assets/icon-512.png', width: 512, height: 512 }],
+    images: [{ url: '/assets/icon-512.png', width: 1200, height: 630, alt: 'SATERI — Servicios Técnicos Premium' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
@@ -33,6 +33,28 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#122c26" />
       </head>
       <body style={{ margin: 0, padding: 0, background: '#f4f7f6', fontFamily: 'Inter, sans-serif', color: '#1a1c1c', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'SATERI',
+              url: 'https://sateri.do',
+              telephone: '+1-849-220-4375',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Santiago de los Caballeros',
+                addressRegion: 'Santiago',
+                postalCode: '51000',
+                addressCountry: 'DO',
+              },
+              areaServed: ['Abreu', 'Villa Olga', 'Los Jardines', 'Cerros de Gurabo'],
+              serviceType: ['HVAC', 'Plumbing', 'Electrical', 'Appliance Repair', 'Laundry', 'Cleaning'],
+            }),
+          }}
+        />
         <style>{`
           * { box-sizing: border-box; }
           html, body { scrollbar-width: none; }

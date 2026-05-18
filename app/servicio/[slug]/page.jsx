@@ -26,7 +26,13 @@ export async function generateMetadata({ params }) {
         title: data.metaTitle,
         description: data.metaDescription,
         url: `https://sateri.do/servicio/${slug}`,
-        images: [{ url: data.imageUrl || '/assets/icon-512.png' }],
+        type: 'website',
+        images: [{
+          url: data.imageUrl || '/assets/icon-512.png',
+          width: 1200,
+          height: 630,
+          alt: data.h1,
+        }],
       },
     };
   } catch {
