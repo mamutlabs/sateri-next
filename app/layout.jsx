@@ -51,6 +51,8 @@ export default function RootLayout({ children }) {
             .header-cta { font-size: 11px !important; padding: 8px 14px !important; }
             .seo-hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
             .seo-hero-form { display: none; }
+            .seo-mobile-form { display: block !important; }
+            .seo-mobile-cta { display: block !important; }
             .sectors-grid { gap: 40px !important; }
           }
           @keyframes spin { to { transform: rotate(360deg); } }
