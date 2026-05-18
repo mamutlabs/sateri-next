@@ -91,7 +91,7 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
           borderRadius: 9999, padding: '8px 16px', backdropFilter: 'blur(12px)', marginBottom: 36
         }}>
           <span className="material-symbols-outlined" style={{ color: '#96f996', fontSize: 14 }}>verified</span>
-          <span style={{ fontFamily: 'Inter', fontSize: 11, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: '#fff' }}>
+          <span className="hero-badge-text" style={{ fontFamily: 'Inter', fontSize: 11, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: '#fff' }}>
             Disponible en Santiago de los Caballeros
           </span>
         </div>
@@ -115,13 +115,13 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
         <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
           <div style={{
             display: 'flex', alignItems: 'center', background: '#fff',
-            borderRadius: 9999, padding: '8px 8px 8px 24px',
+            borderRadius: 9999, padding: '8px 8px 8px 24px', overflow: 'hidden',
             boxShadow: focused
               ? '0 25px 50px -12px rgba(0,0,0,.5), 0 0 0 4px rgba(150,249,150,.25)'
               : '0 25px 50px -12px rgba(0,0,0,.4)',
             transition: 'box-shadow 200ms'
           }}>
-            <span className="material-symbols-outlined" style={{ color: '#122c26', fontSize: 24, marginRight: 12 }}>search</span>
+            <span className="material-symbols-outlined" style={{ color: '#122c26', fontSize: 24, marginRight: 12, flexShrink: 0 }}>search</span>
             <input
               ref={inputRef}
               value={query}
@@ -131,12 +131,12 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
               onKeyDown={handleKey}
               placeholder="¿Qué servicio necesita? p.ej. plomero, A/C, lavadora…"
               style={{
-                flex: 1, border: 0, outline: 'none', fontFamily: 'Inter', fontSize: 16,
+                flex: 1, minWidth: 0, border: 0, outline: 'none', fontFamily: 'Inter', fontSize: 16,
                 color: '#1a1c1c', background: 'transparent', padding: '14px 0'
               }}
             />
             <button
-              onMouseDown={e => e.preventDefault()} // evita que el blur cierre el dropdown antes del click
+              onMouseDown={e => e.preventDefault()}
               onClick={handleSearch}
               style={{
                 background: '#122c26', color: '#fff', border: 0, fontFamily: 'Inter',
