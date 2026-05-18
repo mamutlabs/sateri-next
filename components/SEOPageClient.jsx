@@ -26,7 +26,7 @@ export default function SEOPageClient({ seoData }) {
       {/* ── HERO ── */}
       <section style={{ position: 'relative', minHeight: '82vh', display: 'flex', alignItems: 'center', background: '#1a3c34', paddingTop: 80, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img src={seoData.imageUrl} alt="" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: .2, mixBlendMode: 'overlay' }} />
+          <img src={seoData.imageUrl} alt={seoData.h1} decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: .2, mixBlendMode: 'overlay' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #122c26, rgba(18,44,38,.95), rgba(18,44,38,.6))' }} />
         </div>
         <div className="seo-hero-grid" style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: 1280, margin: '0 auto', padding: '48px 24px' }}>

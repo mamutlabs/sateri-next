@@ -50,8 +50,10 @@ export default function RootLayout({ children }) {
                 postalCode: '51000',
                 addressCountry: 'DO',
               },
-              areaServed: ['Abreu', 'Villa Olga', 'Los Jardines', 'Cerros de Gurabo'],
-              serviceType: ['HVAC', 'Plumbing', 'Electrical', 'Appliance Repair', 'Laundry', 'Cleaning'],
+              openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-14:00'],
+              priceRange: '$$',
+              areaServed: { '@type': 'City', name: 'Santiago de los Caballeros', containedInPlace: { '@type': 'Country', name: 'República Dominicana' } },
+              serviceType: ['Climatización', 'Plomería', 'Electricidad', 'Línea Blanca', 'Lavandería', 'Limpieza', 'Seguridad'],
             }),
           }}
         />
