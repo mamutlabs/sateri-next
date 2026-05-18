@@ -1,14 +1,15 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { Icon } from '@/lib/icons';
 
 const CAT_ICON = {
-  'Climatización': 'ac_unit',
+  'Climatización': 'acUnit',
   'Plomería': 'plumbing',
-  'Electricidad': 'electrical_services',
+  'Electricidad': 'acUnit',
   'Línea Blanca': 'kitchen',
-  'Lavandería': 'local_laundry_service',
-  'Limpieza': 'cleaning_services',
+  'Lavandería': 'localLaundryService',
+  'Limpieza': 'cleaningServices',
   'Seguridad': 'videocam',
 };
 
@@ -90,7 +91,7 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
           background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.2)',
           borderRadius: 9999, padding: '8px 16px', backdropFilter: 'blur(12px)', marginBottom: 36
         }}>
-          <span className="material-symbols-outlined" style={{ color: '#96f996', fontSize: 14 }}>verified</span>
+          <Icon name="verified" style={{ color: '#96f996', fontSize: 14 }} />
           <span style={{ fontFamily: 'Inter', fontSize: 11, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: '#fff' }}>
             Disponible en Santiago de los Caballeros
           </span>
@@ -121,7 +122,7 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
               : '0 25px 50px -12px rgba(0,0,0,.4)',
             transition: 'box-shadow 200ms'
           }}>
-            <span className="material-symbols-outlined" style={{ color: '#122c26', fontSize: 24, marginRight: 12 }}>search</span>
+            <Icon name="search" style={{ color: '#122c26', fontSize: 24, marginRight: 12 }} />
             <input
               ref={inputRef}
               value={query}
@@ -181,12 +182,12 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
                     }}
                     onMouseEnter={e => e.currentTarget.style.background = '#f4f7f6'}
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-                    <span className="material-symbols-outlined" style={{ background: '#122c26', color: '#96f996', borderRadius: 12, padding: 6, fontSize: 22, flexShrink: 0 }}>{icon}</span>
+                    <Icon name={icon} style={{ background: '#122c26', color: '#96f996', borderRadius: 12, padding: 6, fontSize: 22, flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
                       <div style={{ fontFamily: 'Inter', fontSize: 15, fontWeight: 600, color: '#122c26' }}>{page.h1}</div>
                       {sector && <div style={{ fontFamily: 'Inter', fontSize: 12, color: '#717976' }}>{sector}</div>}
                     </div>
-                    <span className="material-symbols-outlined" style={{ color: '#717976' }}>arrow_forward</span>
+                    <Icon name="arrowForward" style={{ color: '#717976' }} />
                   </button>
                 );
               })}
@@ -222,12 +223,12 @@ const HeroSearch = ({ pages = [], onSelectService }) => {
           flexWrap: 'wrap', color: 'rgba(255,255,255,.7)', fontFamily: 'Inter', fontSize: 13
         }}>
           {[
-            ['shield_person', 'Técnicos auditados'],
+            ['shieldPerson', 'Técnicos auditados'],
             ['verified', 'Garantía por escrito'],
             ['schedule', 'Atención el mismo día']
           ].map(([ico, t]) => (
             <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span className="material-symbols-outlined" style={{ color: '#96f996', fontSize: 18 }}>{ico}</span>
+              <Icon name={ico} style={{ color: '#96f996', fontSize: 18 }} />
               <span>{t}</span>
             </div>
           ))}
