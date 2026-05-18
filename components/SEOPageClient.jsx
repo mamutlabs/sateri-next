@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Icon } from '@/lib/icons';
 import ContactForm from './ContactForm';
 import SEOContent from './SEOContent';
 
@@ -36,7 +35,7 @@ export default function SEOPageClient({ seoData }) {
               ← Volver al inicio
             </button>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.2)', borderRadius: 9999, padding: '8px 16px', backdropFilter: 'blur(12px)', marginBottom: 32 }}>
-              <Icon name="verified" style={{ color: '#96f996', fontSize: 14 }} />
+              <span className="material-symbols-outlined" style={{ color: '#96f996', fontSize: 14 }}>verified</span>
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: '#fff' }}>{seoData.serviceCategory} Premium</span>
             </div>
             <h1 style={{ fontFamily: '"Playfair Display",serif', fontSize: 'clamp(36px,5vw,68px)', fontWeight: 700, color: '#fff', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 24px' }}>
@@ -48,7 +47,7 @@ export default function SEOPageClient({ seoData }) {
             <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {(seoData.benefits || []).map((b, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'rgba(255,255,255,.9)' }}>
-                  <Icon name="checkCircle" style={{ color: '#96f996', fontSize: 20 }} />
+                  <span className="material-symbols-outlined" style={{ color: '#96f996', fontSize: 20 }}>check_circle</span>
                   <span style={{ fontFamily: 'Inter' }}>{b}</span>
                 </div>
               ))}
@@ -119,7 +118,7 @@ export default function SEOPageClient({ seoData }) {
       {/* ── BOTTOM CTA ── */}
       <section style={{ background: '#122c26', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <Icon name="homeRepairService" style={{ fontSize: 48, color: '#96f996', display: 'block', marginBottom: 16 }} />
+          <span className="material-symbols-outlined" style={{ fontSize: 48, color: '#96f996', display: 'block', marginBottom: 16 }}>home_repair_service</span>
           <h2 style={{ fontFamily: '"Playfair Display",serif', fontSize: 'clamp(28px,3.5vw,44px)', fontWeight: 700, color: '#fff', margin: '0 0 16px', lineHeight: 1.1 }}>
             ¿Listo para resolver su problema hoy?
           </h2>
