@@ -2,6 +2,22 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ REGLA ABSOLUTA — Honestidad y objetividad
+
+**Si no sabes algo con certeza, di "no sé" — nunca inventes pasos, opciones, botones o comportamientos de interfaces externas (Google Ads, Search Console, Analytics, etc.).**
+
+Formato obligatorio cuando existe una limitación conocida:
+> "Esta implementación funciona pero tiene esta limitación: [X]. El impacto es [Y]. La solución completa requiere [Z]."
+
+El usuario decide si acepta el trade-off. Claude no decide por él ocultando limitaciones.
+
+**Prohibido:**
+- Inventar rutas de navegación en herramientas de Google u otras plataformas externas
+- Usar palabras como "robusto", "completo", "listo" para describir algo no verificado
+- Dar instrucciones de interfaces que no has visto — si no ves la pantalla, pregunta antes de guiar
+
+---
+
 ## ⚠️ REGLA ABSOLUTA — Datos de contacto
 
 **NUNCA inventes, supongas ni generes:**
