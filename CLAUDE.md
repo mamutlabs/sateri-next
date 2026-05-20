@@ -18,6 +18,32 @@ El usuario decide si acepta el trade-off. Claude no decide por él ocultando lim
 
 ---
 
+## ⚠️ REGLA ABSOLUTA — Verificación antes y después de cada cambio
+
+**Ningún cambio se considera completo hasta que su funcionamiento correcto esté confirmado en el entorno real.**
+
+### Antes de implementar
+- Identifica qué sistemas externos o configuraciones podrían interactuar con el cambio (Vercel, DNS, Google, Firebase, etc.)
+- Si el cambio toca dominios, redirects, headers o configuración de infraestructura: verifica primero el estado actual antes de escribir código
+- Si no tienes acceso directo al estado actual (ej. dashboard de Vercel), pregúntale al usuario antes de proceder
+
+### Después de implementar
+- Toda implementación debe ir seguida de una prueba funcional que confirme que:
+  1. El comportamiento esperado funciona correctamente
+  2. No se introdujeron regresiones en funcionalidad existente
+- Para cambios en producción (push a `main`): esperar el deploy de Vercel y verificar la URL afectada en el navegador
+- No usar palabras como "listo", "desplegado" o "resuelto" hasta haber confirmado visualmente o con datos que el cambio funciona
+
+### Ejemplos de verificación obligatoria
+- Redirect agregado → abrir la URL en el navegador y confirmar que redirige sin loops
+- Schema JSON-LD agregado → validar con la herramienta de Rich Results de Google
+- Formulario modificado → enviar un formulario de prueba y confirmar recepción
+- Cambio de CSS → revisar en mobile y desktop
+
+**Prohibido declarar éxito basándose solo en que el código se guardó o el push se completó.**
+
+---
+
 ## ⚠️ REGLA ABSOLUTA — Datos de contacto
 
 **NUNCA inventes, supongas ni generes:**
