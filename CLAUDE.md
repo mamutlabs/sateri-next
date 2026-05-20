@@ -18,29 +18,47 @@ El usuario decide si acepta el trade-off. Claude no decide por él ocultando lim
 
 ---
 
-## ⚠️ REGLA ABSOLUTA — Verificación antes y después de cada cambio
+## ⚠️ REGLA ABSOLUTA — Verificación integral de todo cambio
 
-**Ningún cambio se considera completo hasta que su funcionamiento correcto esté confirmado en el entorno real.**
+**Ningún cambio, implementación o configuración se considera completo hasta que su funcionamiento correcto esté verificado en el entorno real de destino. "Funciona en teoría" no es aceptable.**
 
-### Antes de implementar
-- Identifica qué sistemas externos o configuraciones podrían interactuar con el cambio (Vercel, DNS, Google, Firebase, etc.)
-- Si el cambio toca dominios, redirects, headers o configuración de infraestructura: verifica primero el estado actual antes de escribir código
-- Si no tienes acceso directo al estado actual (ej. dashboard de Vercel), pregúntale al usuario antes de proceder
+### Principio general
 
-### Después de implementar
-- Toda implementación debe ir seguida de una prueba funcional que confirme que:
-  1. El comportamiento esperado funciona correctamente
-  2. No se introdujeron regresiones en funcionalidad existente
-- Para cambios en producción (push a `main`): esperar el deploy de Vercel y verificar la URL afectada en el navegador
-- No usar palabras como "listo", "desplegado" o "resuelto" hasta haber confirmado visualmente o con datos que el cambio funciona
+Todo cambio tiene tres fases obligatorias: **análisis previo**, **implementación**, y **verificación**. Saltarse cualquiera de las tres está prohibido. Un cambio sin verificación es un cambio a ciegas — exactamente lo que causó la caída del sitio por redirect loop.
 
-### Ejemplos de verificación obligatoria
-- Redirect agregado → abrir la URL en el navegador y confirmar que redirige sin loops
-- Schema JSON-LD agregado → validar con la herramienta de Rich Results de Google
-- Formulario modificado → enviar un formulario de prueba y confirmar recepción
-- Cambio de CSS → revisar en mobile y desktop
+### Fase 1 — Análisis previo (antes de tocar código o configuración)
 
-**Prohibido declarar éxito basándose solo en que el código se guardó o el push se completó.**
+- **Entender el estado actual**: antes de modificar cualquier sistema, verificar cómo está configurado ahora. Si no tienes acceso directo, pregúntale al usuario.
+- **Mapear dependencias**: identificar qué otros sistemas, servicios o configuraciones podrían verse afectados (Vercel, DNS, CDN, Firebase, Google, CI/CD, dominios, etc.).
+- **Evaluar el radio de impacto**: ¿este cambio afecta solo una página o todo el sitio? ¿Solo desarrollo o también producción? ¿Puede romper algo que funciona?
+- **Planificar el rollback**: antes de implementar, saber exactamente cómo revertir si algo sale mal.
+- **Si hay duda, preguntar**: es preferible una pregunta de más que un deploy roto.
+
+### Fase 2 — Implementación
+
+- **Cambios incrementales**: si un cambio toca múltiples sistemas, implementar y verificar uno a la vez — no todo de golpe.
+- **Probar en local primero**: cuando sea posible, ejecutar `npm run dev` o `npm run build` y confirmar que funciona antes de hacer push.
+- **No hacer push a `main` sin haber validado localmente**: `main` despliega automáticamente a producción. Un error en main es un error en vivo.
+
+### Fase 3 — Verificación post-implementación
+
+- Después de cada deploy, verificar en el entorno real que:
+  1. **El cambio funciona como se esperaba**
+  2. **No se rompió nada que funcionaba antes** (regresión)
+  3. **El comportamiento es correcto en todas las rutas relevantes** (home, páginas internas, mobile, desktop)
+- Si no puedes verificar directamente (no tienes acceso al navegador, dashboard, etc.), pídele al usuario que confirme.
+- No uses palabras como "listo", "desplegado", "corregido" o "resuelto" hasta que haya confirmación real — no basta con que el commit se haya pusheado o que el build no haya dado error.
+
+### Aplica a todo tipo de cambio
+
+- Código (frontend, backend, config)
+- Configuración de servicios externos (Google Ads, Analytics, Search Console, Vercel, Firebase)
+- DNS, dominios, redirects, SSL
+- Schemas, meta tags, SEO
+- Formularios, integraciones con APIs de terceros
+- Cualquier instrucción dada al usuario sobre interfaces externas
+
+**Prohibido declarar éxito basándose solo en que el código compiló, el push se completó, o no hubo error visible. La única prueba válida es el resultado verificado en el entorno de destino.**
 
 ---
 
