@@ -1,0 +1,47 @@
+# SATERI
+
+> Servicios Técnicos Premium en Santiago de los Caballeros, República Dominicana.
+
+SATERI conecta hogares y negocios con técnicos certificados y auditados en Santiago de los Caballeros. Ofrecemos diagnóstico el mismo día, garantía por escrito y seguimiento por app.
+
+## Servicios
+
+- **Climatización**: Instalación, reparación y mantenimiento de aires acondicionados (split, inverter, central).
+- **Plomería**: Reparación de tuberías, filtraciones, instalación de grifería, destape de drenajes.
+- **Electricidad**: Diagnóstico eléctrico, reparación de cortocircuitos, instalación de paneles y cableado.
+- **Línea Blanca**: Reparación de lavadoras, neveras, estufas, secadoras y otros electrodomésticos.
+- **Lavandería**: Recogida y entrega de ropa a domicilio con servicio por libra.
+- **Limpieza**: Limpieza profunda residencial y comercial, planes recurrentes disponibles.
+- **Seguridad**: Instalación de cámaras CCTV, sistemas de alarma y controles de acceso.
+
+## Cobertura
+
+Santiago de los Caballeros y sectores aledaños, incluyendo: Los Jardines, Cerros de Gurabo, Villa Olga, Reparto del Este, La Trinitaria, Bella Vista, Gurabo, La Esmeralda, Pontezuela, Cienfuegos, Hoya del Caimito, Jardines del Norte, entre otros.
+
+## Datos de contacto
+
+- Sitio web: https://sateri.do
+- WhatsApp: +1-849-220-4375
+- Horario: Lunes a Viernes 8am–6pm, Sábados 9am–2pm
+
+## Estructura del sitio
+
+- [Inicio](https://sateri.do/): Página principal con buscador de servicios.
+- [Servicios](https://sateri.do/servicio/): Más de 660 páginas de servicios específicos por sector y tipo. Formato de URL: `/servicio/{tipo-de-servicio-en-{sector}}`.
+- [Contacto](https://sateri.do/contact): Formulario de contacto directo.
+- [Política de privacidad](https://sateri.do/privacidad)
+- [Términos y condiciones](https://sateri.do/terminos)
+
+## Ejemplos de páginas de servicio
+
+- [Reparación de aires acondicionados en Los Jardines](https://sateri.do/servicio/reparacion-de-aires-acondicionados-en-los-jardines)
+- [Instalación de plomería en Cerros de Gurabo](https://sateri.do/servicio/instalacion-de-plomeria-en-cerros-de-gurabo)
+- [Reparación de lavadoras en Villa Olga](https://sateri.do/servicio/reparacion-de-lavadoras-en-villa-olga)
+- [Instalación de cámaras de seguridad en Gurabo](https://sateri.do/servicio/instalacion-de-camaras-de-seguridad-cctv-en-gurabo)
+
+## Información técnica
+
+- Framework: Next.js (SSG + ISR)
+- Hosting: Vercel
+- Base de datos: Firebase Firestore
+- Esquemas: JSON-LD (LocalBusiness, Service, FAQPage, BreadcrumbList)
