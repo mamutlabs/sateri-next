@@ -10,7 +10,7 @@ const TESTIMONIALS = [
   { name: 'Laura Féliz', sector: 'Cerros de Gurabo', rating: 5, text: 'Ya los he llamado dos veces y siempre la misma calidad. Técnicos puntuales y honestos. SATERI es mi opción fija.' },
 ];
 
-export default function SEOPageClient({ seoData }) {
+export default function SEOPageClient({ seoData, faqs = [] }) {
   const router = useRouter();
   const serviceName = seoData.h1.split(' en ')[0];
   const location = seoData.h1.split(' en ')[1] || 'Santiago';
@@ -78,6 +78,40 @@ export default function SEOPageClient({ seoData }) {
 
       {/* ── SEO CONTENT ── */}
       <SEOContent paragraphs={seoData.content ? seoData.content.split('\n') : []} />
+
+      {/* ── FAQs ── */}
+      {faqs.length > 0 && (
+        <section style={{ background: '#f4f7f6', padding: '80px 24px' }}>
+          <div style={{ maxWidth: 800, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <span className="material-symbols-outlined" style={{ fontSize: 36, color: '#122c26', display: 'block', marginBottom: 12 }}>help</span>
+              <h2 style={{ fontFamily: '"Playfair Display",serif', fontSize: 'clamp(28px,3vw,40px)', fontWeight: 700, color: '#122c26', margin: '0 0 12px' }}>
+                Preguntas frecuentes
+              </h2>
+              <p style={{ fontFamily: 'Inter', color: '#6b7280', fontSize: 16 }}>
+                Sobre {serviceName.toLowerCase()} en {location}.
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {faqs.map((faq, i) => (
+                <details key={i} style={{ background: '#fff', borderRadius: 16, padding: 0, overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+                  <summary style={{
+                    fontFamily: 'Inter', fontSize: 16, fontWeight: 600, color: '#122c26',
+                    padding: '20px 24px', cursor: 'pointer', listStyle: 'none',
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+                  }}>
+                    {faq.q}
+                    <span className="material-symbols-outlined" style={{ color: '#96f996', fontSize: 24, flexShrink: 0, marginLeft: 16 }}>expand_more</span>
+                  </summary>
+                  <div style={{ padding: '0 24px 20px', fontFamily: 'Inter', fontSize: 15, color: '#414846', lineHeight: 1.7 }}>
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── TESTIMONIALS ── */}
       <section style={{ background: '#fff', padding: '80px 24px' }}>

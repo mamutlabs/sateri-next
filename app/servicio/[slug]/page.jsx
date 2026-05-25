@@ -132,7 +132,7 @@ export default async function SEOPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <SEOPageClient seoData={seoData} />
+      <SEOPageClient seoData={seoData} faqs={faqs} />
     </>
   );
 }
