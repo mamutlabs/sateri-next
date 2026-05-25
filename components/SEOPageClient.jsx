@@ -10,7 +10,7 @@ const TESTIMONIALS = [
   { name: 'Laura Féliz', sector: 'Cerros de Gurabo', rating: 5, text: 'Ya los he llamado dos veces y siempre la misma calidad. Técnicos puntuales y honestos. SATERI es mi opción fija.' },
 ];
 
-export default function SEOPageClient({ seoData, faqs = [] }) {
+export default function SEOPageClient({ seoData, faqs = [], enrichmentContent = [] }) {
   const router = useRouter();
   const serviceName = seoData.h1.split(' en ')[0];
   const location = seoData.h1.split(' en ')[1] || 'Santiago';
@@ -77,7 +77,10 @@ export default function SEOPageClient({ seoData, faqs = [] }) {
       </div>
 
       {/* ── SEO CONTENT ── */}
-      <SEOContent paragraphs={seoData.content ? seoData.content.split('\n') : []} />
+      <SEOContent paragraphs={[
+        ...(seoData.content ? seoData.content.split('\n') : []),
+        ...enrichmentContent,
+      ]} />
 
       {/* ── FAQs ── */}
       {faqs.length > 0 && (

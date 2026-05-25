@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getDocument, runQuery } from '@/lib/firestore';
+import { getEnrichmentContent } from '@/lib/content-enrichment';
 import SEOPageClient from '@/components/SEOPageClient';
 
 export const revalidate = 86400;
@@ -85,6 +86,7 @@ export default async function SEOPage({ params }) {
 
   const location = seoData.h1.split(' en ')[1] ?? 'Santiago de los Caballeros';
   const faqs = FAQ_BY_CATEGORY[seoData.serviceCategory] ?? FAQ_BY_CATEGORY['Climatización'];
+  const enrichmentContent = getEnrichmentContent(slug, seoData.content || '');
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -132,7 +134,7 @@ export default async function SEOPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <SEOPageClient seoData={seoData} faqs={faqs} />
+      <SEOPageClient seoData={seoData} faqs={faqs} enrichmentContent={enrichmentContent} />
     </>
   );
 }
