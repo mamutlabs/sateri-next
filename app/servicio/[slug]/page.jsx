@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getDocument, runQuery } from '@/lib/firestore';
 import { getEnrichmentContent } from '@/lib/content-enrichment';
+import { getOgImage } from '@/lib/og-images';
 import SEOPageClient from '@/components/SEOPageClient';
 
 export const revalidate = 86400;
@@ -57,6 +58,10 @@ export async function generateMetadata({ params }) {
   try {
     const data = await getDocument('pages', slug);
     if (!data) return {};
+    const publishedTime = data._createTime || null;
+    const modifiedTime = data._updateTime || null;
+    const ogImage = getOgImage(slug, data.imageUrl || '/assets/icon-512.png');
+
     return {
       title: { absolute: data.metaTitle },
       description: data.metaDescription,
@@ -65,9 +70,11 @@ export async function generateMetadata({ params }) {
         title: data.metaTitle,
         description: data.metaDescription,
         url: `https://sateri.do/servicio/${slug}`,
-        type: 'website',
+        type: 'article',
+        ...(publishedTime && { publishedTime }),
+        ...(modifiedTime && { modifiedTime }),
         images: [{
-          url: data.imageUrl || '/assets/icon-512.png',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: data.h1,

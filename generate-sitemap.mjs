@@ -17,7 +17,7 @@ const STATIC_PAGES = [
   { url: '/terminos',   priority: '0.3', changefreq: 'yearly'  },
 ];
 
-async function getPublishedSlugs() {
+async function getPublishedPages() {
   const endpoint = `https://firestore.googleapis.com/v1/projects/${PROJECT}/databases/${DATABASE}/documents:runQuery`;
   const body = {
     structuredQuery: {
@@ -43,13 +43,16 @@ async function getPublishedSlugs() {
 
   return results
     .filter(r => r.document)
-    .map(r => r.document.name.split('/').pop());
+    .map(r => ({
+      slug: r.document.name.split('/').pop(),
+      updateTime: r.document.updateTime?.split('T')[0] || TODAY,
+    }));
 }
 
 async function generate() {
   console.log('Obteniendo páginas de Firestore...');
-  const slugs = await getPublishedSlugs();
-  console.log(`${slugs.length} páginas encontradas.`);
+  const pages = await getPublishedPages();
+  console.log(`${pages.length} páginas encontradas.`);
 
   const staticEntries = STATIC_PAGES.map(p => `
   <url>
@@ -59,10 +62,10 @@ async function generate() {
     <priority>${p.priority}</priority>
   </url>`);
 
-  const dynamicEntries = slugs.map(slug => `
+  const dynamicEntries = pages.map(({ slug, updateTime }) => `
   <url>
     <loc>${BASE_URL}/servicio/${slug}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <lastmod>${updateTime}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`);
@@ -73,7 +76,7 @@ ${[...staticEntries, ...dynamicEntries].join('')}
 </urlset>`;
 
   writeFileSync('./public/sitemap.xml', sitemap);
-  console.log(`✓ public/sitemap.xml generado con ${slugs.length + STATIC_PAGES.length} URLs.`);
+  console.log(`✓ public/sitemap.xml generado con ${pages.length + STATIC_PAGES.length} URLs.`);
 }
 
 generate().catch(err => {
