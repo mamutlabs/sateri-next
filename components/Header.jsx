@@ -34,6 +34,7 @@ const SateriHeader = () => {
         <div className="header-nav" style={{ gap: 28, alignItems: 'center', fontFamily: 'Inter', fontSize: 12, letterSpacing: '.18em', textTransform: 'uppercase' }}>
           <span style={{ color: '#122c26', fontWeight: 700 }}>Santiago, RD</span>
           <span style={{ color: 'rgba(18,44,38,.6)', fontWeight: 500 }}>Servicios Premium</span>
+          <span onClick={() => router.push('/blog')} style={{ color: 'rgba(18,44,38,.6)', fontWeight: 500, cursor: 'pointer' }}>Blog</span>
         </div>
         <button onClick={scrollToDownload} className="header-cta" style={{
           background: '#122c26', color: '#fff', fontFamily: 'Inter', fontWeight: 700,

@@ -24,6 +24,17 @@ Santiago de los Caballeros y sectores aledaños, incluyendo: Los Jardines, Cerro
 - WhatsApp: +1-849-220-4375
 - Horario: Lunes a Viernes 8am–6pm, Sábados 9am–2pm
 
+## Blog
+
+SATERI publica artículos y guías prácticas sobre mantenimiento del hogar, climatización, plomería, electricidad y seguridad, enfocados en Santiago de los Caballeros:
+
+- [Cómo elegir el aire acondicionado ideal para su hogar en Santiago](https://sateri.do/blog/como-elegir-aire-acondicionado-ideal-santiago)
+- [5 señales de que su aire acondicionado necesita reparación](https://sateri.do/blog/5-senales-aire-acondicionado-necesita-reparacion)
+- [Guía de mantenimiento preventivo de plomería para su hogar](https://sateri.do/blog/guia-mantenimiento-preventivo-plomeria-hogar)
+- [Cómo proteger sus electrodomésticos de las fluctuaciones eléctricas](https://sateri.do/blog/como-proteger-electrodomesticos-fluctuaciones-electricas)
+- [Beneficios de instalar cámaras de seguridad CCTV en su hogar o negocio](https://sateri.do/blog/beneficios-camaras-seguridad-cctv-hogar-negocio)
+- [Cómo reducir su factura eléctrica con un aire acondicionado inverter](https://sateri.do/blog/como-reducir-factura-electrica-aire-acondicionado-inverter)
+
 ## Herramientas interactivas
 
 - [Calculadora de BTU](https://sateri.do/herramientas/calculadora-btu): Herramienta gratuita para calcular la capacidad de aire acondicionado necesaria según el tamaño del espacio, tipo de habitación, exposición solar y cantidad de ocupantes. Ajustada para el clima tropical de Santiago de los Caballeros.
@@ -32,6 +43,7 @@ Santiago de los Caballeros y sectores aledaños, incluyendo: Los Jardines, Cerro
 
 - [Inicio](https://sateri.do/): Página principal con buscador de servicios.
 - [Servicios](https://sateri.do/servicio/): Más de 660 páginas de servicios específicos por sector y tipo. Formato de URL: `/servicio/{tipo-de-servicio-en-{sector}}`.
+- [Blog](https://sateri.do/blog): Artículos y guías prácticas sobre mantenimiento del hogar.
 - [Calculadora de BTU](https://sateri.do/herramientas/calculadora-btu): Calculadora interactiva de capacidad de A/C.
 - [Contacto](https://sateri.do/contact): Formulario de contacto directo.
 - [Política de privacidad](https://sateri.do/privacidad)
