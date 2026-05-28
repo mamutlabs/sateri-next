@@ -3,6 +3,9 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import ContactForm from './ContactForm';
 import SEOContent from './SEOContent';
+import TrustSignals from './TrustSignals';
+import WhatsAppCapture from './WhatsAppCapture';
+import BTUCalculator from './BTUCalculator';
 
 const TESTIMONIALS = [
   { name: 'María González', sector: 'Villa Olga', rating: 5, text: 'Llegaron el mismo día, repararon el A/C en menos de dos horas y dejaron todo limpio. El técnico fue muy profesional.' },
@@ -10,10 +13,13 @@ const TESTIMONIALS = [
   { name: 'Laura Féliz', sector: 'Cerros de Gurabo', rating: 5, text: 'Ya los he llamado dos veces y siempre la misma calidad. Técnicos puntuales y honestos. SATERI es mi opción fija.' },
 ];
 
+const AC_CATEGORIES = ['Climatización', 'Refrigeración Comercial'];
+
 export default function SEOPageClient({ seoData, faqs = [], enrichmentContent = [] }) {
   const router = useRouter();
   const serviceName = seoData.h1.split(' en ')[0];
   const location = seoData.h1.split(' en ')[1] || 'Santiago';
+  const isAC = AC_CATEGORIES.includes(seoData.serviceCategory);
 
   const scrollToForm = () => {
     const isMobile = window.innerWidth <= 768;
@@ -115,6 +121,15 @@ export default function SEOPageClient({ seoData, faqs = [], enrichmentContent = 
           </div>
         </section>
       )}
+
+      {/* ── BTU CALCULATOR (AC pages only) ── */}
+      {isAC && <BTUCalculator compact onRequestService={scrollToForm} />}
+
+      {/* ── TRUST SIGNALS (E-E-A-T) ── */}
+      <TrustSignals serviceName={serviceName} />
+
+      {/* ── WHATSAPP CAPTURE ── */}
+      <WhatsAppCapture />
 
       {/* ── TESTIMONIALS ── */}
       <section style={{ background: '#fff', padding: '80px 24px' }}>

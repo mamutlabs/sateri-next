@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const LINKS = [
+  { label: 'Calculadora BTU', to: '/herramientas/calculadora-btu' },
   { label: 'Privacidad', to: '/privacidad' },
   { label: 'Términos',   to: '/terminos'   },
   { label: 'Contacto',   to: '/contact'    },

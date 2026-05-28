@@ -7,6 +7,7 @@ import SectorsMap from './SectorsMap';
 import HowItWorks from './HowItWorks';
 import Testimonials from './Testimonials';
 import CtaBand from './CtaBand';
+import WhatsAppCapture from './WhatsAppCapture';
 
 export default function HomeClient({ pages }) {
   const router = useRouter();
@@ -27,6 +28,7 @@ export default function HomeClient({ pages }) {
       <SectorsMap />
       <HowItWorks />
       <Testimonials />
+      <WhatsAppCapture />
       <CtaBand />
     </>
   );

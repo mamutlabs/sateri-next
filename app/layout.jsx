@@ -40,8 +40,12 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
+              '@id': 'https://sateri.do/#organization',
               name: 'SATERI',
+              alternateName: ['SATERI Santiago', 'SATERI Servicios Técnicos', 'SATERI RD'],
               url: 'https://sateri.do',
+              logo: 'https://sateri.do/assets/icon-512.png',
+              image: 'https://sateri.do/assets/icon-512.png',
               telephone: '+1-849-220-4375',
               address: {
                 '@type': 'PostalAddress',
@@ -50,10 +54,53 @@ export default function RootLayout({ children }) {
                 postalCode: '51000',
                 addressCountry: 'DO',
               },
-              openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-14:00'],
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 19.4517,
+                longitude: -70.6970,
+              },
+              openingHoursSpecification: [
+                { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '18:00' },
+                { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
+              ],
               priceRange: '$$',
-              areaServed: { '@type': 'City', name: 'Santiago de los Caballeros', containedInPlace: { '@type': 'Country', name: 'República Dominicana' } },
+              currenciesAccepted: 'DOP',
+              paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+              areaServed: {
+                '@type': 'City',
+                name: 'Santiago de los Caballeros',
+                containedInPlace: { '@type': 'Country', name: 'República Dominicana' },
+              },
               serviceType: ['Climatización', 'Plomería', 'Electricidad', 'Línea Blanca', 'Lavandería', 'Limpieza', 'Seguridad'],
+              knowsAbout: [
+                'Reparación de aires acondicionados',
+                'Instalación de plomería residencial',
+                'Diagnóstico eléctrico',
+                'Reparación de electrodomésticos',
+                'Instalación de cámaras de seguridad CCTV',
+                'Mantenimiento preventivo de equipos',
+              ],
+              sameAs: [
+                'https://wa.me/18492204375',
+              ],
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                reviewCount: '127',
+                bestRating: '5',
+                worstRating: '1',
+              },
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Servicios Técnicos SATERI',
+                itemListElement: [
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Climatización — Instalación y reparación de A/C' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Plomería — Reparación de tuberías y filtraciones' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Electricidad — Diagnóstico y reparación eléctrica' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Línea Blanca — Reparación de electrodomésticos' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Seguridad — Cámaras CCTV y alarmas' } },
+                ],
+              },
             }),
           }}
         />

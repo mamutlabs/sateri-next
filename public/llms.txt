@@ -24,10 +24,15 @@ Santiago de los Caballeros y sectores aledaños, incluyendo: Los Jardines, Cerro
 - WhatsApp: +1-849-220-4375
 - Horario: Lunes a Viernes 8am–6pm, Sábados 9am–2pm
 
+## Herramientas interactivas
+
+- [Calculadora de BTU](https://sateri.do/herramientas/calculadora-btu): Herramienta gratuita para calcular la capacidad de aire acondicionado necesaria según el tamaño del espacio, tipo de habitación, exposición solar y cantidad de ocupantes. Ajustada para el clima tropical de Santiago de los Caballeros.
+
 ## Estructura del sitio
 
 - [Inicio](https://sateri.do/): Página principal con buscador de servicios.
 - [Servicios](https://sateri.do/servicio/): Más de 660 páginas de servicios específicos por sector y tipo. Formato de URL: `/servicio/{tipo-de-servicio-en-{sector}}`.
+- [Calculadora de BTU](https://sateri.do/herramientas/calculadora-btu): Calculadora interactiva de capacidad de A/C.
 - [Contacto](https://sateri.do/contact): Formulario de contacto directo.
 - [Política de privacidad](https://sateri.do/privacidad)
 - [Términos y condiciones](https://sateri.do/terminos)
