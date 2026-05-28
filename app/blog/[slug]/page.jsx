@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }) {
-  const article = getArticleBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   if (!article) return {};
 
   return {
@@ -37,8 +38,9 @@ const CATEGORY_ICONS = {
   'Línea Blanca': 'kitchen',
 };
 
-export default function BlogArticle({ params }) {
-  const article = getArticleBySlug(params.slug);
+export default async function BlogArticle({ params }) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   if (!article) notFound();
 
   const allArticles = getAllArticles();
